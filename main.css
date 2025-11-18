@@ -17,3 +17,37 @@ body{
     margin: 0 auto;
     width: 500px;
 }
+
+.main-button-one{
+    padding: 12px 28px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #6f00ff, #9a4dff);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    transition: 0.3s ease;
+}
+
+.main-button-one:hover{
+    transform: scale(1.1);
+}
+
+.main-button-two{
+    padding: 12px 28px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #6f00ff, #9a4dff);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    transition: 0.3s ease;
+}
+
+.main-button-two:hover{
+    transform: scale(1.1);
+}
