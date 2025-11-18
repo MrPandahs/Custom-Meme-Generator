@@ -1,3 +1,8 @@
+const upload = document.getElementById('main-button-two');
+const submit = document.getElementById('main-button-one');
+const refresh = document.getElementById('main-button-three');
+
+
 function mistralChat(prompt) {
     return fetch("https://api.mistral.ai/v1/chat/completions", {
         method: "POST",
@@ -21,3 +26,5 @@ function mistralChat(prompt) {
 }
 
 mistralChat("You have to create funny text on an image that the user uploads.")
+
+
