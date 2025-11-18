@@ -8,7 +8,7 @@ function mistralChat(prompt) {
         body: JSON.stringify({
             model: "mistral-medium-2508",
             messages: [
-                { role: "system", content: "You are a concise assistant." },
+                { role: "system", content: "You are a meme generator" },
                 { role: "user", content: prompt }
             ],
             temperature: 0.7,
@@ -20,4 +20,4 @@ function mistralChat(prompt) {
         });
 }
 
-mistralChat("Explain recursion in one sentence.")
+mistralChat("You have to create funny text on an image that the user uploads.")
