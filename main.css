@@ -1,0 +1,19 @@
+body{
+    background: linear-gradient(to bottom, darkorange, yellow);
+}
+
+.main-header{
+    text-align: center;
+    margin-bottom: 50rem;
+}
+
+.main-info{
+    text-align: center;
+    margin-bottom: 10rem;
+}
+
+.picture-of-cat{
+    display: block;
+    margin: 0 auto;
+    width: 500px;
+}
