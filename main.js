@@ -27,4 +27,6 @@ function mistralChat(prompt) {
 
 mistralChat("You have to create funny text on an image that the user uploads.")
 
+upload.addEventListener('click', function () {
 
+})

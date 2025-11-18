@@ -18,7 +18,7 @@ body{
     width: 500px;
 }
 
-.main-button-one{
+#main-button-one{
     padding: 12px 28px;
     border: none;
     border-radius: 50px;
@@ -31,11 +31,11 @@ body{
     transition: 0.3s ease;
 }
 
-.main-button-one:hover{
+#main-button-one:hover{
     transform: scale(1.1);
 }
 
-.main-button-two{
+#main-button-two{
     padding: 12px 28px;
     border: none;
     border-radius: 50px;
@@ -48,11 +48,11 @@ body{
     transition: 0.3s ease;
 }
 
-.main-button-two:hover{
+#main-button-two:hover{
     transform: scale(1.1);
 }
 
-.main-button-three{
+#main-button-three{
     padding: 12px 28px;
     border: none;
     border-radius: 50px;
@@ -65,6 +65,6 @@ body{
     transition: 0.3s ease;
 }
 
-.main-button-three:hover{
+#main-button-three:hover{
     transform: scale(1.1);
 }
