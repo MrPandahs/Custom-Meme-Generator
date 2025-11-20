@@ -21,6 +21,7 @@ body{
     display: block;
     margin: 0 auto;
     width: 500px;
+    margin-bottom: -50px;
 }
 
 #main-button-one{
