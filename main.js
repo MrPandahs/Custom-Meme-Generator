@@ -1,4 +1,5 @@
 const upload = document.getElementById('main-button-two');
+const libraryFile = document.getElementById('fileInput');
 const submit = document.getElementById('main-button-one');
 const refresh = document.getElementById('main-button-three');
 
@@ -13,20 +14,28 @@ function mistralChat(prompt) {
         body: JSON.stringify({
             model: "mistral-medium-2508",
             messages: [
-                { role: "system", content: "You are a meme generator" },
-                { role: "user", content: prompt }
+                {role: "system", content: "You are a text meme generator"},
+                {role: "user", content: prompt}
             ],
             temperature: 0.7,
             max_tokens: 1000
         })
     })
-        .then(function(data) {
+        .then(function (data) {
             console.log(data.choices[0].message.content);
         });
 }
 
-mistralChat("You have to create funny text on an image that the user uploads.")
+mistralChat("You have to create funny text to an image that the user uploads.")
 
 upload.addEventListener('click', function () {
+    libraryFile.click();
 
-})
+});
+
+libraryFile.addEventListener('change', function (event) {
+    const file = event.target.files[0];
+    console.log("Selected file", file)
+});
+
+
