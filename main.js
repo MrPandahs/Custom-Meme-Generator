@@ -11,7 +11,7 @@ const imageContainer = document.getElementById('imageContainer');
 let selectedFile = null;
 
 
-function mistralChat(prompt) {
+async function mistralChat(prompt) {
     return fetch("https://api.mistral.ai/v1/chat/completions", {
         method: "POST",
         headers: {
@@ -28,9 +28,9 @@ function mistralChat(prompt) {
             max_tokens: 1000
         })
     })
-        .then(function (data) {
-            console.log(data.choices[0].message.content);
-        });
+     const data = await response.json();
+    return data.choices[0].message.content;
+
 }
 
 mistralChat("You have to create funny text to an image that the user uploads.")
@@ -47,17 +47,12 @@ libraryFile.addEventListener('change', function (event) {
     fileContainer.textContent = 'Here is your awesome and beautiful image file: ';
     imageContainer.textContent = '';
 
-    fileContainer.style.fontFamily = "Impact, Arial Black, sans-serif";
-    fileContainer.style.fontSize = "15px";
-    fileContainer.style.color = "white";
-    fileContainer.style.textTransform = "uppercase";
-    fileContainer.style.textShadow = "2px 2px 0px black, -2px 2px 0px black, 2px -2px 0px black, -2px -2px 0px black";
 
     const fileNameSpan = document.createElement('span');
     fileNameSpan.textContent = selectedFile.name;
     fileNameSpan.style.cursor = 'pointer';
     fileNameSpan.style.textDecoration = 'underline';
-    fileNameSpan.style.color = 'blue';
+
 
     fileNameSpan.addEventListener('click', function() {
         libraryFile.click();
@@ -73,7 +68,7 @@ function showPopup() {
 closePopup.addEventListener('click', () => {
     popup.style.display = 'none';
 });
-submit.addEventListener('click', function() {
+submit.addEventListener('click', async function() {
     if (!selectedFile) {
         showPopup();
         return;
@@ -83,8 +78,20 @@ submit.addEventListener('click', function() {
     const img = document.createElement('img');
     img.src = URL.createObjectURL(selectedFile);
     img.style.width = '500px';
-
     imageContainer.append(img);
+
+    const description = `Describe this image and create a funny meme text for it: ${selectedFile.name}`;
+    const memeText = await mistralChat(description);
+
+    const textDiv = document.createElement('div');
+    textDiv.textContent = memeText;
+    textDiv.style.marginTop = '20px';
+    textDiv.style.fontFamily = 'Impact, Arial Black, sans-serif';
+    textDiv.style.fontSize = '24px';
+    textDiv.style.color = 'white';
+    textDiv.style.textShadow = '2px 2px 0 black';
+    textDiv.style.textAlign = 'center';
+    imageContainer.append(textDiv);
 });
 
 refresh.addEventListener('click', function(){
