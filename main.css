@@ -68,3 +68,44 @@ body{
 #main-button-three:hover{
     transform: scale(1.1);
 }
+
+#filePlacement {
+    margin-top: 15px;
+}
+
+#imageContainer {
+    margin-top: 15px;
+}
+
+#popup {
+    display: none;              /* hidden by default */
+    position: fixed;            /* stay in place on scroll */
+    top: 50%;                   /* vertical center */
+    left: 50%;                  /* horizontal center */
+    transform: translate(-50%, -50%); /* perfect centering */
+    background-color: white;
+    padding: 20px;
+    border: 2px solid #333;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 1000;              /* on top of other elements */
+    text-align: center;
+}
+
+#popup button {
+    padding: 5px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+#popup button:hover {
+    background-color: #0056b3;
+}
+
+#popup img {
+    display: block;
+    margin: 0 auto 10px auto; /* center and spacing */
+}

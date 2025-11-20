@@ -1,7 +1,14 @@
+const popup = document.getElementById('popup');
+const closePopup = document.getElementById('closePopup');
+
 const upload = document.getElementById('main-button-two');
 const libraryFile = document.getElementById('fileInput');
 const submit = document.getElementById('main-button-one');
 const refresh = document.getElementById('main-button-three');
+const fileContainer = document.getElementById('filePlacement');
+const imageContainer = document.getElementById('imageContainer');
+
+let selectedFile = null;
 
 
 function mistralChat(prompt) {
@@ -34,8 +41,46 @@ upload.addEventListener('click', function () {
 });
 
 libraryFile.addEventListener('change', function (event) {
-    const file = event.target.files[0];
-    console.log("Selected file", file)
+     selectedFile = event.target.files[0];
+    if (!selectedFile) return;
+
+    fileContainer.textContent = 'Here is your awesome and beautiful image file: ';
+    imageContainer.textContent = '';
+
+    const fileNameSpan = document.createElement('span');
+    fileNameSpan.textContent = selectedFile.name;
+    fileNameSpan.style.cursor = 'pointer';
+    fileNameSpan.style.textDecoration = 'underline';
+    fileNameSpan.style.color = 'blue';
+
+    fileNameSpan.addEventListener('click', function() {
+        libraryFile.click();
+    });
+    fileContainer.append(fileNameSpan);
 });
 
+function showPopup() {
+    popup.style.display = 'block';
+}
 
+// Close button
+closePopup.addEventListener('click', () => {
+    popup.style.display = 'none';
+});
+submit.addEventListener('click', function() {
+    if (!selectedFile) {
+        showPopup();
+        return;
+    }
+    imageContainer.textContent = '';
+
+    const img = document.createElement('img');
+    img.src = URL.createObjectURL(selectedFile);
+    img.style.width = '500px';
+
+    imageContainer.append(img);
+});
+
+refresh.addEventListener('click', function(){
+    location.reload();
+})

@@ -7,14 +7,24 @@
     <title>Custom meme generator</title>
 </head>
 <body>
+
+<div id="popup">
+    <img src="Stonk-Pepe.svg" alt="Alert Icon" width="80" height="80">
+    <span id="popupText">Why you no upload image yet you boomer!</span>
+    <br><br>
+    <button id="closePopup">OK</button>
+</div>
+
 <img class="picture-of-cat" src="nyan-cat%20(1).gif">
 <div class="main-header">
-<h1>Random Meme Generator</h1>
+    <h1>Random Meme Generator</h1>
     <p>Upload your image and let the magic happen</p>
     <button id="main-button-two">Upload</button>
-    <input type="file" id="fileInput" accept="image/*" style="display:none" />
+    <input type="file" id="fileInput" accept="image/*" style="display:none"/>
     <button id="main-button-one">Submit</button>
     <button id="main-button-three">Refresh</button>
+    <div id="filePlacement"></div>
+    <div id="imageContainer"></div>
 </div>
 
 <script src="main.js"></script>
