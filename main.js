@@ -47,6 +47,12 @@ libraryFile.addEventListener('change', function (event) {
     fileContainer.textContent = 'Here is your awesome and beautiful image file: ';
     imageContainer.textContent = '';
 
+    fileContainer.style.fontFamily = "Impact, Arial Black, sans-serif";
+    fileContainer.style.fontSize = "15px";
+    fileContainer.style.color = "white";
+    fileContainer.style.textTransform = "uppercase";
+    fileContainer.style.textShadow = "2px 2px 0px black, -2px 2px 0px black, 2px -2px 0px black, -2px -2px 0px black";
+
     const fileNameSpan = document.createElement('span');
     fileNameSpan.textContent = selectedFile.name;
     fileNameSpan.style.cursor = 'pointer';
