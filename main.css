@@ -120,3 +120,47 @@ body{
     font-family: Impact, Arial Black, sans-serif;
     
 }
+
+#apiInfo{
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+
+#apiKeyInput {
+    padding: 12px 20px;
+    width: 320px;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    outline: none;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+#saveApiKey {
+    padding: 12px 28px;
+    border: none;
+    border-radius: 50px;
+    margin-left: 10px;
+    background: linear-gradient(135deg, #6f00ff, #9a4dff);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    transition: 0.3s ease;
+}
+
+#saveApiKey:hover {
+    transform: scale(1.1);
+}
+
+#statusMessage {
+    margin-top: 15px;
+    font-size: 22px;
+    font-family: Impact, Arial Black, sans-serif;
+    color: white;
+    text-align: center;
+    text-shadow: 2px 2px 0 black;
+}
+
