@@ -34,7 +34,7 @@ saveApiButton.addEventListener('click', function () {
 
 async function mistralChat(prompt) {
     if (!apiKey) {
-        return "Error: No API key provided";
+        return "Error: You haven't provided your api key yet! Do that so you can have fun! 😁";
     }
 
     const response = await fetch("https://api.mistral.ai/v1/chat/completions", {
