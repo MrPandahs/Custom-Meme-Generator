@@ -118,6 +118,7 @@ body{
 
 #popupText {
     font-family: Impact, Arial Black, sans-serif;
+    font-size: 20px;
     
 }
 
@@ -163,4 +164,21 @@ body{
     text-align: center;
     text-shadow: 2px 2px 0 black;
 }
+
+#popupOverlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+    z-index: 900;
+}
+
+#popup {
+    z-index: 1000;
+}
+
 

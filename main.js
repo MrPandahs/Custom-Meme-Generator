@@ -1,6 +1,7 @@
 // Select popup elements
 const popup = document.getElementById('popup');
 const closePopup = document.getElementById('closePopup');
+const popUpOverlay = document.getElementById('popupOverlay');
 
 // Select buttons and file inputs
 const upload = document.getElementById('main-button-two');
@@ -98,12 +99,73 @@ libraryFile.addEventListener('change', function (event) {
 // Shows popup when file is missing
 function showPopup() {
     popup.style.display = 'block';
+    popupOverlay.style.display = 'block';
 }
+
 
 // Close popup button
 closePopup.addEventListener('click', () => {
     popup.style.display = 'none';
+    popupOverlay.style.display = 'none';
 });
+
+
+function drawMemeImage(imageFile, memeText) {
+    return new Promise((resolve) => {
+        const img = new Image();
+        img.src = URL.createObjectURL(imageFile);
+
+        img.onload = () => {
+            const canvas = document.getElementById('memeCanvas');
+            const ctx = canvas.getContext('2d');
+
+            canvas.width = img.width;
+            canvas.height = img.height;
+
+            // Draw the original image
+            ctx.drawImage(img, 0, 0);
+
+            // TEXT SETTINGS
+            const baseSize = img.width * 0.07;
+            const fontSize = Math.min(baseSize, 80);
+            ctx.font = `${fontSize}px Impact`;
+
+            ctx.fillStyle = "white";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "top";
+            ctx.lineWidth = Math.max(fontSize / 10, 6);
+            ctx.strokeStyle = "black";
+
+            const maxWidth = img.width * 0.85;
+            const words = memeText.split(" ");
+            const lines = [];
+
+            let line = "";
+
+            for (let w of words) {
+                const testLine = line + w + " ";
+                if (ctx.measureText(testLine).width > maxWidth) {
+                    lines.push(line);
+                    line = w + " ";
+                } else {
+                    line = testLine;
+                }
+            }
+            lines.push(line);
+
+
+            let y = 20;
+
+            for (let l of lines) {
+                ctx.strokeText(l, canvas.width / 2, y);
+                ctx.fillText(l, canvas.width / 2, y);
+                y += parseInt(ctx.font, 10) + 10; // line spacing
+            }
+
+            resolve(canvas.toDataURL());
+        };
+    });
+}
 
 // Submit button: generate meme text
 submit.addEventListener('click', async function () {
@@ -115,12 +177,6 @@ submit.addEventListener('click', async function () {
     imageContainer.textContent = '';
     apiStatusMessage.textContent = 'Creating text to your beautiful picture';
 
-    // Display uploaded image
-    const img = document.createElement('img');
-    img.src = URL.createObjectURL(selectedFile);
-    img.style.width = '500px';
-    imageContainer.append(img);
-
     const description = `Create a funny meme text for this file: ${selectedFile.name}`;
 
     try {
@@ -128,22 +184,21 @@ submit.addEventListener('click', async function () {
 
         apiStatusMessage.textContent = '';
 
-        // Display meme text
-        const textDiv = document.createElement('div');
-        textDiv.textContent = memeText;
-        textDiv.style.marginTop = '20px';
-        textDiv.style.fontFamily = 'Impact, Arial Black, sans-serif';
-        textDiv.style.fontSize = '24px';
-        textDiv.style.color = 'white';
-        textDiv.style.textShadow = '2px 2px 0 black';
-        textDiv.style.textAlign = 'center';
-        imageContainer.append(textDiv);
+        //Create meme image
+        const finalImageURL = await drawMemeImage(selectedFile, memeText);
+
+        const finalImg = document.createElement('img');
+        finalImg.src = finalImageURL;
+        finalImg.style.width = "500px";
+
+        imageContainer.append(finalImg);
 
     } catch (error) {
         console.error(error);
         apiStatusMessage.textContent = 'Seems like you got an error :c refresh and try again good sir or madam!';
     }
 });
+
 
 // Refresh button reloads the page
 refresh.addEventListener('click', function () {
