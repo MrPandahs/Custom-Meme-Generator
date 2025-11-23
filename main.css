@@ -1,29 +1,42 @@
+/* ===== Global Page Styling ===== */
 body{
+    /* Background gradient from dark orange to yellow */
     background: linear-gradient(to bottom, darkorange, yellow);
 }
 
+/* ===== Main Header Section ===== */
 .main-header{
     text-align: center;
-    margin-bottom: 50rem;
-    font-family: Impact, Arial Black, sans-serif;
+    margin-bottom: 50rem; /* Large spacing below the header */
+    font-family: Impact, Arial Black, sans-serif; /* Meme-style font */
     font-size: 30px;
     color: white;
     text-transform: uppercase;
-    text-shadow: 2px 2px 0px black, -2px 2px 0px black, 2px -2px 0px black, -2px -2px 0px black;
+
+    /* Heavy meme-style text outline */
+    text-shadow:
+            2px 2px 0px black,
+            -2px 2px 0px black,
+            2px -2px 0px black,
+            -2px -2px 0px black;
 }
 
+/* Additional informational section above buttons */
 .main-info{
     text-align: center;
     margin-bottom: 10rem;
 }
 
+/* Floating decorative cat GIF */
 .picture-of-cat{
     display: block;
     margin: 0 auto;
     width: 500px;
-    margin-bottom: -50px;
+    margin-bottom: -50px; /* Pulls content slightly upward */
 }
 
+/* ===== Reusable Button Styles ===== */
+/* Styled submit button */
 #main-button-one{
     padding: 12px 28px;
     border: none;
@@ -33,14 +46,18 @@ body{
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
+
+    /* Soft drop shadow */
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     transition: 0.3s ease;
 }
 
+/* Hover grow animation */
 #main-button-one:hover{
     transform: scale(1.1);
 }
 
+/* Upload button */
 #main-button-two{
     padding: 12px 28px;
     border: none;
@@ -58,6 +75,7 @@ body{
     transform: scale(1.1);
 }
 
+/* Refresh button */
 #main-button-three{
     padding: 12px 28px;
     border: none;
@@ -75,29 +93,35 @@ body{
     transform: scale(1.1);
 }
 
+/* ===== Layout Areas ===== */
 #filePlacement {
-    margin-top: 15px;
+    margin-top: 15px; /* Space above file display text */
 }
 
 #imageContainer {
-    margin-top: 15px;
+    margin-top: 15px; /* Space above generated images */
 }
 
+/* ===== Popup Window Styling ===== */
 #popup {
-    display: none;              /* hidden by default */
-    position: fixed;            /* stay in place on scroll */
-    top: 50%;                   /* vertical center */
-    left: 50%;                  /* horizontal center */
-    transform: translate(-50%, -50%); /* perfect centering */
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 50%;       /* Center vertically */
+    left: 50%;      /* Center horizontally */
+    transform: translate(-50%, -50%);
     background-color: white;
     padding: 20px;
     border: 2px solid #333;
     border-radius: 8px;
+
+    /* Subtle outer shadow */
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    z-index: 1000;              /* on top of other elements */
+
+    z-index: 1000; /* Appears above overlay */
     text-align: center;
 }
 
+/* Popup button styling */
 #popup button {
     padding: 5px 15px;
     border: none;
@@ -111,17 +135,19 @@ body{
     background-color: #0056b3;
 }
 
+/* Popup image centered */
 #popup img {
     display: block;
-    margin: 0 auto 10px auto; /* center and spacing */
+    margin: 0 auto 10px auto;
 }
 
+/* Popup text styling (meme font) */
 #popupText {
     font-family: Impact, Arial Black, sans-serif;
     font-size: 20px;
-    
 }
 
+/* ===== API Key Section ===== */
 #apiInfo{
     text-align: center;
     margin-top: 60px;
@@ -156,29 +182,37 @@ body{
     transform: scale(1.1);
 }
 
+/* Status message below buttons */
 #statusMessage {
     margin-top: 15px;
     font-size: 22px;
     font-family: Impact, Arial Black, sans-serif;
     color: white;
     text-align: center;
+
+    /* Outline to help visibility */
     text-shadow: 2px 2px 0 black;
 }
 
+/* ===== Popup Background Overlay ===== */
 #popupOverlay {
-    display: none;
+    display: none; /* Shown only when popup is active */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+
+    /* Semi-transparent dark background */
     background: rgba(0, 0, 0, 0.55);
+
+    /* Slight blur effect behind popup */
     backdrop-filter: blur(4px);
-    z-index: 900;
+
+    z-index: 900; /* Behind popup, above page */
 }
 
+/* Redundant z-index reinforcement (harmless) */
 #popup {
     z-index: 1000;
 }
-
-

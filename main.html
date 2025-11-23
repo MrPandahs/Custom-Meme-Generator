@@ -3,38 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- External stylesheet for page styling -->
     <link rel="stylesheet" href="main.css">
+
     <title>Custom meme generator</title>
 </head>
 <body>
+
+<!-- Dark overlay shown behind popup -->
 <div id="popupOverlay"></div>
+
+<!-- Popup that appears if no image is uploaded -->
 <div id="popup">
+    <!-- Funny alert SVG image -->
     <img src="Stonk-Pepe.svg" alt="Alert Icon" width="240" height="240">
+
+    <!-- Popup message text -->
     <span id="popupText">Why you no upload image yet you boomer?!</span>
     <br><br>
+
+    <!-- Button to close the popup -->
     <button id="closePopup">I'm sorry! 😞</button>
 </div>
 
+<!-- Random floating cat gif (visual accessory) -->
 <img class="picture-of-cat" src="nyan-cat%20(1).gif">
 
+<!-- Section allowing the user to input an API key -->
 <div id="apiInfo">
     <input type="text" id="apiKeyInput" placeholder="Enter your API key here">
     <button id="saveApiKey">Save API key temporarily</button>
 </div>
 
+<!-- Main header section -->
 <div class="main-header">
     <h1>Random Meme Generator</h1>
     <p>Upload your image and let the magic happen</p>
+
+    <!-- Upload button triggers hidden file input -->
     <button id="main-button-two">Upload</button>
+
+    <!-- Canvas used for drawing meme overlays -->
     <canvas id="memeCanvas" style="display:none"></canvas>
+
+    <!-- Hidden file picker -->
     <input type="file" id="fileInput" accept="image/*" style="display:none"/>
+
+    <!-- Submit button (likely triggers meme generation) -->
     <button id="main-button-one">Submit</button>
+
+    <!-- Refresh button to reset the UI -->
     <button id="main-button-three">Refresh</button>
+
+    <!-- Placement area for showing uploaded file name -->
     <div id="filePlacement"></div>
+
+    <!-- Status messages (loading, errors, success notifications) -->
     <div id="statusMessage"></div>
+
+    <!-- Where the generated meme or chosen image will display -->
     <div id="imageContainer"></div>
 </div>
 
+<!-- Main JS logic for the app -->
 <script src="main.js"></script>
 </body>
 </html>
